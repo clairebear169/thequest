@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Quest</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Saira&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url(bwNMtPe-video-game-wallpaper.jpg);
+        background-size: auto 100vh;
+        background-attachment: fixed;
+      }
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hearts {
+        display: flex;
+      }
+
+      .heart {
+        height: 50px;
+      }
+
+      .story {
+        margin: 10px;
+        padding: 20px;
+        border: 3px solid #1b262c;
+        border-radius: 5px;
+        max-width: 600px;
+        height: fit-content;
+        font-family: "Saira", sans-serif;
+        font-weight: bold;
+        text-align: center;
+        color: #1b262c;
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(8px);
+        box-shadow: -2px 2px 10px #1b262c;
+      }
+
+      h1 {
+        font-family: "Press Start 2P", cursive;
+        color: #d92027;
+        line-height: 35px;
+        font-size: 30px;
+      }
+
+      .title {
+        font-size: 40px;
+        line-height: 38px;
+        margin-bottom: 8px;
+        text-align: center;
+        transition: all 200ms ease-in-out;
+      }
+
+      .title:hover {
+        cursor: pointer;
+      }
+
+      .options {
+        display: flex;
+        justify-content: center;
+      }
+
+      button {
+        margin: 10px;
+        font-family: "Saira", sans-serif;
+        background-color: transparent;
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+        color: #1b262c;
+        transition: all 200ms ease-in-out;
+      }
+
+      button:hover {
+        text-decoration: underline #d92027;
+        color: #d92027;
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+
+      .hide {
+        display: none;
+      }
+
+      .spacer {
+        height: 28vh;
+        z-index: -1;
+      }
+
+      .credit {
+        position: fixed;
+        bottom: 0px;
+        color: #d92027;
+        font-family: "Saira", sans-serif;
+        font-weight: bold;
+        font-size: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        padding: 0 2px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1 class="title">
+        THE QUEST
+      </h1>
+      <div class="hearts">
+        <img class="heart life" src="heart.png" />
+        <img class="heart life-two" src="heart.png" />
+        <img class="heart life-three" src="heart.png" />
+      </div>
+    </div>
+    <div class="story one">
+      <h1>Hello there!</h1>
+      <p>
+        Welcome, brave adventurer. I'm so glad you're here! Somebody has stolen
+        our beloved chicken during the night! Please will you rescue her for us?
+      </p>
+      <div class="options">
+        <button id="yesOne">Of course! Onwards!</button>
+        <button id="noOne">Nah mate, not my thing.</button>
+      </div>
+    </div>
+    <div class="story two hide">
+      <h1>Oh. Okay.</h1>
+      <p>
+        I suppose you have better things to do. I just hope you can live with
+        yourself if our poor little chicken never makes it home. She's such a
+        sweet thing! So loving! So affectionate! She must be so SCARED!
+      </p>
+      <div class="options">
+        <button id="yesTwo">Now I feel bad. I'll go find her.</button>
+        <button id="noTwo">Whatever. Still not going.</button>
+      </div>
+    </div>
+    <div class="story three hide">
+      <h1>Thank you, our hero!</h1>
+      <p>
+        We are so grateful! Here, we made you some lovely marmalade sandwiches
+        to sustain you on your journey. Good luck. Where will you look first?
+      </p>
+      <div class="options">
+        <button id="cliffs">I'll search the cliffs outside.</button>
+        <button id="circus">I'll try the abandoned circus over there.</button>
+      </div>
+    </div>
+    <div class="story four hide">
+      <h1>Oh no!</h1>
+      <p>
+        You fall off the cliff and plummet 729 metres to certain death! What a
+        stupid thing to do. You hadn't even had your sandwiches yet.
+      </p>
+      <div class="options">
+        <button id="yesThree">It's just a flesh wound. To the circus!</button>
+        <button id="noThree">Everything hurts. I'm done.</button>
+      </div>
+    </div>
+    <div class="story five hide">
+      <h1>I have a horrible feeling about this.</h1>
+      <p>
+        This place is so eerie. It's too quiet. It's really dirty. It smells
+        like rubber and old ketchup and it's definitely the sort of place a
+        chicken-stealing villain would hang out. You don't like it. And you're
+        hungry.
+      </p>
+      <div class="options">
+        <button id="look">Keep looking. Is she in that tent?</button>
+        <button id="sandwich">Pause for a sandwich.</button>
+      </div>
+    </div>
+    <div class="story six hide">
+      <h1>WTF ARE YOU DOING?!</h1>
+      <p>
+        You've got a quest to get on with! What a waste of ti- oh look, and now
+        a creepy clown has arrived. You screwed that up, didn't you? "HAHAHA!"
+        he says, as he ties you up and stuffs you into his human cannon. "I'll
+        have the rest of these sandwiches with my tea. Mmm, chicken a l'orange!"
+        You hit the ground a mile away. You're dead. And if the chicken isn't
+        yet, she will be soon.
+      </p>
+      <div class="options">
+        <button id="yesFour">I'm sorry! I can do better!</button>
+        <button id="noFour">No regrets.</button>
+      </div>
+    </div>
+    <div class="story seven hide">
+      <h1>YOU FOUND ME!</h1>
+      <p>
+        Buh-gaaaaaaaark! Hello, I'm Chicken. Thank you so much for coming to
+        find me! A creepy old clown came in the night and brought me here. I've
+        been so scared! He just nipped out to get a Greggs. Please let's get out
+        of here before he gets back!
+      </p>
+      <div class="options">
+        <button id="win">Woohoo! Let's go!</button>
+      </div>
+    </div>
+    <div class="story eight hide">
+      <h1 id="end"></h1>
+      <p id="tag"></p>
+      <button id="restart">Start Again</button>
+      <button id="playAgain" class="hide">Play Again</button>
+    </div>
+    <div class="spacer"></div>
+    <p class="credit">
+      Coded by Claire👩🏻
+    </p>
+
+    <script>
+      function hideItems() {
+        one.classList.add("hide");
+        two.classList.add("hide");
+        three.classList.add("hide");
+        four.classList.add("hide");
+        five.classList.add("hide");
+        six.classList.add("hide");
+        seven.classList.add("hide");
+        eight.classList.add("hide");
+      }
+
+      function storyTwo() {
+        hideItems();
+        two.classList.remove("hide");
+      }
+
+      function storyThree() {
+        hideItems();
+        three.classList.remove("hide");
+      }
+
+      function storyFour() {
+        hideItems();
+        four.classList.remove("hide");
+      }
+
+      function storyFive() {
+        hideItems();
+        five.classList.remove("hide");
+      }
+
+      function storySix() {
+        hideItems();
+        six.classList.remove("hide");
+      }
+
+      function storySeven() {
+        hideItems();
+        seven.classList.remove("hide");
+      }
+
+      function loseLife() {
+        if (lifeTwo.classList.contains("hide")) {
+          lifeThree.classList.add("hide");
+        } else {
+          if (life.classList.contains("hide")) {
+            lifeTwo.classList.add("hide");
+          } else {
+            life.classList.add("hide");
+          }
+        }
+      }
+
+      function gameOver() {
+        hideItems();
+        eight.classList.remove("hide");
+        end.innerHTML = "GAME OVER";
+        tag.innerHTML =
+          "I put so much work into this and you didn't even try. Do you care about me at all?";
+        loseLife();
+      }
+
+      function gameOverTwo() {
+        hideItems();
+        eight.classList.remove("hide");
+        end.innerHTML = "GAME OVER";
+        tag.innerHTML =
+          "THIS TOOK ME HOURS TO CODE! And you're going to give up just because you died? You make me sick.";
+        loseLife();
+      }
+
+      function gameOverThree() {
+        hideItems();
+        eight.classList.remove("hide");
+        end.innerHTML = "GAME OVER";
+        tag.innerHTML =
+          "Seriously? You're just going to let that evil clown eat the poor defenceless chicken? I thought you were a good person, but I see now I was wrong.";
+        loseLife();
+      }
+
+      function youWin() {
+        hideItems();
+        eight.classList.remove("hide");
+        end.innerHTML = "WINNER WINNER CHICKEN DINNER";
+        tag.innerHTML =
+          "Very well done, brave adventurer. You and the chicken fall in love, open a vegan cafe together, and everyone lives happily ever after. Hurrah!";
+        restart.classList.add("hide");
+        playAgain.classList.remove("hide");
+      }
+
+      function startAgain() {
+        if (lifeThree.classList.contains("hide")) {
+          end.innerHTML = "NOPE.";
+          tag.innerHTML = "Not this time, pal. Sorry. Should've tried harder!";
+          restart.classList.add("hide");
+        } else {
+          hideItems();
+          one.classList.remove("hide");
+        }
+      }
+
+      function replay() {
+        life.classList.remove("hide");
+        lifeTwo.classList.remove("hide");
+        lifeThree.classList.remove("hide");
+        playAgain.classList.add("hide");
+        restart.classList.remove("hide");
+        hideItems();
+        one.classList.remove("hide");
+      }
+
+      function refresh() {
+        location.reload();
+      }
+
+      let one = document.querySelector(".one");
+      let two = document.querySelector(".two");
+      let three = document.querySelector(".three");
+      let four = document.querySelector(".four");
+      let five = document.querySelector(".five");
+      let six = document.querySelector(".six");
+      let seven = document.querySelector(".seven");
+      let eight = document.querySelector(".eight");
+
+      let yesOne = document.getElementById("yesOne");
+      let noOne = document.getElementById("noOne");
+
+      let yesTwo = document.getElementById("yesTwo");
+      let noTwo = document.getElementById("noTwo");
+
+      let cliffs = document.getElementById("cliffs");
+      let circus = document.getElementById("circus");
+
+      let yesThree = document.getElementById("yesThree");
+      let noThree = document.getElementById("noThree");
+
+      let look = document.getElementById("look");
+      let sandwich = document.getElementById("sandwich");
+
+      let yesFour = document.getElementById("yesFour");
+      let noFour = document.getElementById("noFour");
+
+      let win = document.getElementById("win");
+      let end = document.getElementById("end");
+      let tag = document.getElementById("tag");
+      let restart = document.getElementById("restart");
+      let playAgain = document.getElementById("playAgain");
+      let title = document.querySelector(".title");
+      let life = document.querySelector(".life");
+      let lifeTwo = document.querySelector(".life-two");
+      let lifeThree = document.querySelector(".life-three");
+
+      yesOne.addEventListener("click", storyThree);
+      noOne.addEventListener("click", storyTwo);
+      yesTwo.addEventListener("click", storyThree);
+      noTwo.addEventListener("click", gameOver);
+      cliffs.addEventListener("click", storyFour);
+      circus.addEventListener("click", storyFive);
+      yesThree.addEventListener("click", storyFive);
+      noThree.addEventListener("click", gameOverTwo);
+      look.addEventListener("click", storySeven);
+      sandwich.addEventListener("click", storySix);
+      yesFour.addEventListener("click", storyFive);
+      noFour.addEventListener("click", gameOverThree);
+      win.addEventListener("click", youWin);
+      restart.addEventListener("click", startAgain);
+      playAgain.addEventListener("click", replay);
+      title.addEventListener("click", refresh);
+    </script>
+  </body>
+</html>

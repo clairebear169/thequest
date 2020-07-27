@@ -93,6 +93,10 @@
         transform: scale(1.1);
       }
 
+      .lost {
+        animation: lose-heart 1.3s ease-out forwards;
+      }
+
       .hide {
         display: none;
       }
@@ -113,6 +117,27 @@
         backdrop-filter: blur(5px);
         padding: 0 2px;
         border-radius: 5px;
+      }
+
+      @keyframes lose-heart {
+        0% {
+          opacity: 1;
+        }
+
+        20%,
+        40%,
+        60%,
+        80%,
+        100% {
+          opacity: 0;
+        }
+
+        30%,
+        50%,
+        70%,
+        90% {
+          opacity: 0.8;
+        }
       }
     </style>
   </head>
@@ -267,13 +292,13 @@
       }
 
       function loseLife() {
-        if (lifeTwo.classList.contains("hide")) {
-          lifeThree.classList.add("hide");
+        if (lifeTwo.classList.contains("lost")) {
+          lifeThree.classList.add("lost");
         } else {
-          if (life.classList.contains("hide")) {
-            lifeTwo.classList.add("hide");
+          if (life.classList.contains("lost")) {
+            lifeTwo.classList.add("lost");
           } else {
-            life.classList.add("hide");
+            life.classList.add("lost");
           }
         }
       }
@@ -316,7 +341,7 @@
       }
 
       function startAgain() {
-        if (lifeThree.classList.contains("hide")) {
+        if (lifeThree.classList.contains("lost")) {
           end.innerHTML = "NOPE.";
           tag.innerHTML = "Not this time, pal. Sorry. Should've tried harder!";
           restart.classList.add("hide");
@@ -327,11 +352,11 @@
       }
 
       function replay() {
-        life.classList.remove("hide");
-        lifeTwo.classList.remove("hide");
-        lifeThree.classList.remove("hide");
+        life.classList.remove("lost");
+        lifeTwo.classList.remove("lost");
+        lifeThree.classList.remove("lost");
         playAgain.classList.add("hide");
-        restart.classList.remove("hide");
+        restart.classList.remove("lost");
         hideItems();
         one.classList.remove("hide");
       }
